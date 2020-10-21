@@ -54,6 +54,8 @@ const handleNoteSave = function () {
     const newNote = {
         title: $noteTitle.val(),
         text: $noteText.val(),
+        // adding extra key to create a random id
+        id: Math.floor(Math.Random()*1000)
     };
 
     saveNote(newNote).then(() => {
