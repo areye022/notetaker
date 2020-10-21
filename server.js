@@ -10,7 +10,8 @@ const PORT= process.env.PORT || 3001;
 // data parsing
 app.use(express.urlencoded({ extended:true}));
 app.use(express.json());
-app.use(express.static("public"));
+app.use('/assets', express.static('public/assets'));
+
 
 // retrieving root index.html
 app.get('/', function(req,res){
@@ -31,8 +32,12 @@ app.get('/api/notes', function(req,res){
 
 // saving api notes
 app.post('/api/notes', function(req,res){
-    
-    fs.writeFileSync("./db/db.json", JSON.stringify(currentData),function(err){
+    // creating an id for each note/ activeNote is the object in index.js
+    // const id= activeNote.length +1;
+    // const newNote= req.body;
+
+
+    fs.writeFileSync("./db/db.json", JSON.stringify(note),function(err){
         if (err) throw (err);
     });
     res.json(JSON.parse(fs.readFileSync("./db/db.json", "utf-8")));
