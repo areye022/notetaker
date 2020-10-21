@@ -10,7 +10,7 @@ const PORT= process.env.PORT || 3001;
 // data parsing
 app.use(express.urlencoded({ extended:true}));
 app.use(express.json());
-app.use('/assets', express.static('public/assets'));
+app.use(express.static('public'));
 
 
 // retrieving root index.html
@@ -37,7 +37,7 @@ app.post('/api/notes', function(req,res){
     // const newNote= req.body;
 
 
-    fs.writeFileSync("./db/db.json", JSON.stringify(note),function(err){
+    fs.writeFileSync("./db/db.json", JSON.stringify(),function(err){
         if (err) throw (err);
     });
     res.json(JSON.parse(fs.readFileSync("./db/db.json", "utf-8")));
