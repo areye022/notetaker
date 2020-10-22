@@ -39,7 +39,7 @@ app.post('/api/notes', function(req,res){
         newInput.id = 1;
     } else {
         // increase id number by 1 each time theres a new note
-        const newNoteId= notes.length++
+        const newNoteId= notes[notes.length -1].id + 1
         newInput.id = newNoteId;
     }
     // see if newInput working properly
@@ -49,9 +49,7 @@ app.post('/api/notes', function(req,res){
 // writing the new note into the db.json file
     fs.writeFileSync("./db/db.json", JSON.stringify(notes));
     res.json(newInput);
-})
-
-
+});
 
 app.listen(PORT, function(){
     console.log(`App listening on PORT ${PORT}`);
