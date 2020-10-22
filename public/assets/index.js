@@ -54,7 +54,6 @@ const handleNoteSave = function () {
     const newNote = {
         title: $noteTitle.val(),
         text: $noteText.val(),
-        id: 0
     };
 
     saveNote(newNote).then(() => {

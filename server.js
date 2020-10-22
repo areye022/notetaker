@@ -51,6 +51,11 @@ app.post('/api/notes', function(req,res){
     res.json(newInput);
 });
 
+app.delete('/api/notes/:id', function(req,res){
+    const id= req.params.id;
+    console.log(id);
+});
+
 app.listen(PORT, function(){
     console.log(`App listening on PORT ${PORT}`);
 })
