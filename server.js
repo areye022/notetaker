@@ -56,8 +56,10 @@ app.delete('/api/notes/:id', function(req,res){
     console.log(id);
     // filtering through for chosen id
     const newInputs= notes.filter((note) => {
+        // only return the other notes that are not = to the chosen id
         return note.id !== id;
     });
+    // rewrite the db.json file eith the new inputs, so this should not include the deleted note
     fs.writeFileSync("./db/db.json", JSON.stringify(newInputs));
     notes = newInputs;
     res.json(newInputs);
