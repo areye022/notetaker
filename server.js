@@ -52,8 +52,15 @@ app.post('/api/notes', function(req,res){
 });
 
 app.delete('/api/notes/:id', function(req,res){
-    const id= req.params.id;
+    const id= parseInt(req.params.id);
     console.log(id);
+    // filtering through for chosen id
+    const newInputs= notes.filter((note) => {
+        return note.id !== id;
+    });
+    fs.writeFileSync("./db/db.json", JSON.stringify(newInputs));
+    notes = newInputs;
+    res.json(newInputs);
 });
 
 app.listen(PORT, function(){
