@@ -1,7 +1,7 @@
 const fs = require("fs");
 const express= require("express");
 const path= require("path");
-const { json } = require("body-parser");
+let notes= require('./db/db.json');
 
 // sets up express app
 const app= express();
@@ -10,6 +10,7 @@ const PORT= process.env.PORT || 3001;
 // data parsing
 app.use(express.urlencoded({ extended:true}));
 app.use(express.json());
+// allows us to access the public folder
 app.use(express.static('public'));
 
 
@@ -27,21 +28,8 @@ app.get('/notes', function(req,res){
 
 // retrieving api notes
 app.get('/api/notes', function(req,res){
-    res.json(JSON.parse(fs.readFileSync("./db/db.json", "utf-8")));
+    res.json(notes);
 });
-
-// saving api notes
-app.post('/api/notes', function(req,res){
-    // creating an id for each note/ activeNote is the object in index.js
-    // const id= activeNote.length +1;
-    // const newNote= req.body;
-
-
-    fs.writeFileSync("./db/db.json", JSON.stringify(),function(err){
-        if (err) throw (err);
-    });
-    res.json(JSON.parse(fs.readFileSync("./db/db.json", "utf-8")));
-})
 
 
 
