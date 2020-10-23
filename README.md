@@ -2,7 +2,7 @@
 
 ### Deployed Application 
 
-[Note Taker](https://areye022.github.io/weather-dashboard/)
+[Note Taker](https://desolate-reef-28035.herokuapp.com/)
 
 ![Screenshot of Note Taker](./public/assets/images/notetaker1.JPG)
 ![Screenshot of Note Taker](./public/assets/images/notetaker2.JPG)
