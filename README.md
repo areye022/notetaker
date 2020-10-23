@@ -4,9 +4,9 @@
 
 [Note Taker](https://areye022.github.io/weather-dashboard/)
 
-![Screenshot of Note Taker](./public/assets/images/notetaker1.jpg)
-![Screenshot of Note Taker](./public/assets/images/notetaker2.jpg)
-![Screenshot of Note Taker](./public/assets/images/notetaker3.jpg)
+![Screenshot of Note Taker](./public/assets/images/notetaker1.JPG)
+![Screenshot of Note Taker](./public/assets/images/notetaker2.JPG)
+![Screenshot of Note Taker](./public/assets/images/notetaker3.JPG)
 
 ### Description 
 This application allows users to write, save, and delete notes.
